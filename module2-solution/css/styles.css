@@ -8,7 +8,7 @@ h1{
   text-align: center;
   margin: 20px;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 3em;
+  font-size: 1.75em;
 }
 #category{
   display: block;
@@ -16,7 +16,7 @@ h1{
   margin-right: auto;
   margin-left: auto;
   font-family: 'Times New Roman', Times, serif;
-  font-size: 1em;
+  font-size: 1.5em;
   text-align: left;
 }
 p {
@@ -30,6 +30,7 @@ p {
   background-color: lightgrey;
   color: black;
   overflow: hidden;
+  font-size: 1em;
 }
 p:hover {
   overflow:auto;
@@ -45,7 +46,7 @@ span {
   text-align: center;
   background-color: lightgrey;
   color: black;
-  font-size: 1.5em;
+  font-size: 1.25em;
 } 
 #p1 {
   background-color: #A52A2A;
@@ -110,5 +111,9 @@ span {
    
   .reglabel{
     display: none;  
+  }
+
+  .mobilelabel{
+    font-size: 1.5em; /* made bigger so it would wrap */
   }
 }
