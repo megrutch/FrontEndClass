@@ -7,6 +7,17 @@ div {
 h1{
   text-align: center;
   margin: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 3em;
+}
+#category{
+  display: block;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1em;
+  text-align: left;
 }
 p {
   border: 1px solid black;
@@ -18,6 +29,10 @@ p {
   font-family: Helvetica;
   background-color: lightgrey;
   color: black;
+  overflow: hidden;
+}
+p:hover {
+  overflow:auto;
 }
 span {
   float:right;
@@ -29,7 +44,8 @@ span {
   margin: auto;
   text-align: center;
   background-color: lightgrey;
-  color: black
+  color: black;
+  font-size: 1.5em;
 } 
 #p1 {
   background-color: #A52A2A;
@@ -52,6 +68,14 @@ span {
         float:left;
         width: 33%;
     }
+
+    #category{
+      display: none;
+    }
+
+    .mobilelabel{
+      display: none;
+    }
 }
 
 /* Tablet Version */
@@ -65,9 +89,26 @@ span {
         float: left;
         width: 100%;
     }
+    #category{
+      display: none;
+    }
+     .mobilelabel{
+      display: none;
+    }
 }
 
 /* Mobile Version */
 @media (max-width: 767px) {
-  
+   #menu{
+      display: none;
+   }
+
+  span{
+    width:110%; /* had to do this because it was like giving me a weird space because paragraph is only 90% wide */
+    text-align: center;
+  }
+   
+  .reglabel{
+    display: none;  
+  }
 }
