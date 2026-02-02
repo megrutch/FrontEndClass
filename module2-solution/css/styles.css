@@ -86,10 +86,10 @@ span {
         width: 50%;
     }
 
-    .full{
-        float: left;
-        width: 100%;
+    .full p{
+        width: 95%;
     }
+  
     #category{
       display: none;
     }
