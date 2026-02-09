@@ -21,7 +21,7 @@ body {
 
 .navbar-brand {
   padding-top: 15px;
-  margin: 10px auto;
+  /*margin: 10px auto;*/
 }
 
 .navbar-brand h1 { 
@@ -49,6 +49,19 @@ body {
   font-size: 1.8em;
 }
 
+.container-fluid .jumbotron{
+  background-color: peachpuff;
+  height: 1000px;
+  border: 2px solid maroon;
+  padding: 10px;
+  margin: 0;
+}
 
-/* END HEADER */
+p{
+  font-size: 1.2em;
+}
 
+h4{
+  font-size: 1.5em;
+  text-align: center;
+}
