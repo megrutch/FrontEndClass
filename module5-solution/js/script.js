@@ -172,18 +172,22 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
       aboutUrl,
       function (aboutHTML) {
         var random = chooseRandomNum();
+        // I wanted to start at 1 so it was easy to match to class name
         for (var i = 1; i < 6; i++) {
           if (i <= random) {
+            // filled in stars
             var style = "fa fa-star";
             var className = "class" + i;
             aboutHTML = insertProperty(aboutHTML, className, style);
           }
           else {
+            // not filled in stars 
             var style = "fa fa-star-o";
             var className = "class" + i;
             aboutHTML = insertProperty(aboutHTML, className, style);
           }
         }
+        // add text
         var ratingS = random +"-star rating";
         aboutHTML = insertProperty(aboutHTML, "rating", ratingS);
         insertHtml("#main-content", aboutHTML);
