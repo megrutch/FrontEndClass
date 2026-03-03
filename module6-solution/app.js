@@ -1,6 +1,12 @@
 (function () {
     'use strict';
+    // looked into ng - class and ng -style from W# schools to figure out how can apply different colors 
+    // https://www.w3schools.com/angularjs/ng_ng-class.asp
 
+    // https://www.w3schools.com/angular/angular_css_styling.asp
+    // and then using scope can apply the appropriate styles 
+
+    // followed the homework with specific naming conventions
     angular.module('LunchCheck', [])
         .controller('LunchCheckController', LunchCheckController);
 
@@ -40,6 +46,8 @@
             var count = 0;
             for(var i = 0; i < arr.length; i++){
                 var curr = arr[i];
+
+                // have to trim because otherwise was coming in as a blank space
                 curr = curr.trim();
                 if(curr != ""){
                     count++;
