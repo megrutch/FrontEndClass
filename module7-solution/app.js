@@ -1,6 +1,7 @@
 (function(){
 'use strict';
-
+// followed along with lecture videos to complete assignment and 
+// followed instructions to check off each step and meet the requirements
 angular.module('ShoppingListCheckOff', [])
 .controller('ToBuyController', ToBuyController)
 .controller('AlreadyBoughtController', AlreadyBoughtController)
@@ -12,8 +13,7 @@ function ToBuyController(ShoppingListCheckOffService) {
   buy.items = ShoppingListCheckOffService.getToBuyItems();
 
   buy.purchaseItem = function(itemIndex){
-    console.log("purchasing item: ", itemIndex);
-    console.log("item Quantity", buy.items[itemIndex].item_quantity);
+    // purhcase item with index as given in lectures
     ShoppingListCheckOffService.purchaseItem(itemIndex);
   }
 }
@@ -27,6 +27,7 @@ function AlreadyBoughtController(ShoppingListCheckOffService) {
 function ShoppingListCheckOffService() {
   var service = this;
     // the names of each given in instructions
+    // need at least 5 items
   var toBuyItems =[
     {item_name: "cookies", item_quantity: 10, pricePerItem: 2},
     {item_name: "peanut butter", item_quantity: 2, pricePerItem: 5},
@@ -35,6 +36,7 @@ function ShoppingListCheckOffService() {
     {item_name: "milk", item_quantity: 2, pricePerItem: 4}
   ]
 
+  // starts as empty items 
   var boughtItems = [];
 
   service.getToBuyItems = function () {
