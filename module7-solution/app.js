@@ -11,9 +11,9 @@ function ToBuyController(ShoppingListCheckOffService) {
   var buy = this;
   buy.items = ShoppingListCheckOffService.getToBuyItems();
 
-  buy.purchaseItem = function(item){
-    console.log("purchasing item: ", item);
-    ShoppingListCheckOffService.purchaseItem(item);
+  buy.purchaseItem = function(itemIndex){
+    console.log("purchasing item: ", itemIndex);
+    ShoppingListCheckOffService.purchaseItem(itemIndex);
   }
 }
 
@@ -43,10 +43,13 @@ function ShoppingListCheckOffService() {
   service.getBoughtItems = function () {
     return boughtItems;
   };
-
-  service.purchaseItem = function(item){
+  // using item index based on lecture video 20 pt 2 (showed how to remove)
+  service.purchaseItem = function(itemIndex){
     // figure out how to remove from the to buy list and add to bought list
-
+    // need to store it first and then splice
+    var item = toBuyItems[itemIndex];
+    toBuyItems.splice(itemIndex, 1);  
+    boughtItems.push(item);
   }
 }
 })();

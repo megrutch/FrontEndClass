@@ -2,7 +2,6 @@
 <html lang="en" ng-app="ShoppingListCheckOff">
   <head>
     <title>Shopping List Check Off</title>
-    <script src="app.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
@@ -33,7 +32,7 @@
     <div class="col-md-6" ng-controller='ToBuyController as buy'>
      <h2>To Buy:</h2>
      <ul>
-       <li ng-repeat="item in buy.items">Buy {{item.item_quantity}} {{item.item_name}} <button class="btn btn-default" ng-click="buy.purchaseItem(item)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+       <li ng-repeat="item in buy.items">Buy {{item.item_quantity}} {{item.item_name}} <button class="btn btn-default" ng-click="buy.purchaseItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
      </ul>
      <div class="emptyMessage">Everything is bought!</div>
     </div>
@@ -42,13 +41,13 @@
     <div class="col-md-6" ng-controller='AlreadyBoughtController as bought'>
      <h2>Already Bought:</h2>
      <ul>
-       <li ng-repeat="item in bought.items">{{item}}</li>
+       <li ng-repeat="item in bought.items">Bought {{item.item_quantity}} of {{item.item_name}} for total price of $$${{item.item_quantity * item.pricePerItem | number:2}}</li>
      </ul>
      <div class="emptyMessage">Nothing bought yet.</div>
     </div>
   </div>
 </div>
 <script src="angular.min.js"></script>
-
+<script src="app.js"></script>
 </body>
 </html>
