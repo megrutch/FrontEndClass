@@ -34,7 +34,7 @@
      <ul>
        <li ng-repeat="item in buy.items">Buy {{item.item_quantity}} {{item.item_name}} <button class="btn btn-default" ng-click="buy.purchaseItem($index)"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
      </ul>
-     <div class="emptyMessage">Everything is bought!</div>
+     <div class="emptyMessage" ng-if="buy.items.length === 0">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
@@ -43,7 +43,7 @@
      <ul>
        <li ng-repeat="item in bought.items">Bought {{item.item_quantity}} of {{item.item_name}} for total price of $$${{item.item_quantity * item.pricePerItem | number:2}}</li>
      </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
+     <div class="emptyMessage" ng-if="bought.items.length === 0">Nothing bought yet.</div>
     </div>
   </div>
 </div>
