@@ -13,6 +13,7 @@ function ToBuyController(ShoppingListCheckOffService) {
 
   buy.purchaseItem = function(itemIndex){
     console.log("purchasing item: ", itemIndex);
+    console.log("item Quantity", buy.items[itemIndex].item_quantity);
     ShoppingListCheckOffService.purchaseItem(itemIndex);
   }
 }
