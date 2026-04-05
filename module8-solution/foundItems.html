@@ -1,5 +1,11 @@
+<!-- tried to add some spacing because otherwsie was going next to the top button. also made small so wasn't as big as blue button-->
+<br>
+<hr>
 <ul>
+    <!--instructions said to display name short name and description seperated by comma-->
     <li ng-repeat="item in list.items">
-      {{ item.short_name }}: {{ item.name }} - {{ item.description }}
-      <button class="btn btn-primary" ng-click="list.onRemove({index: $index})">Don't want this one!</button>
+      {{ item.name }}, {{item.short_name}}, {{ item.description }}
+      <button class="btn btn-sm" ng-click="list.onRemove({index: $index})">Don't want this one!</button>
 </ul>
+<!--Simlar to cookies error from Lecture 30-->
+<div class="error" ng-if="list.notFound()">Nothing found</div>
