@@ -17,8 +17,8 @@
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click="narrowC.searchMenuItems(narrowC.searchTerm)">Narrow It Down For Me!</button>
     </div>
-    
-    <found-items found-items="narrowC.found" on-remove="...."></found-items>
+    <!--Had to change the second found items to items becaue was seeing two directives and giving me error -->
+    <found-items items="narrowC.found" on-remove="narrowC.removeItem($index)"></found-items>
     </div>
   </div>
 <script src="angular.min.js"></script>

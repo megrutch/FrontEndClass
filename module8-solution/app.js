@@ -3,11 +3,37 @@
 
 angular.module('NarrowItDownApp', [])
 .controller('NarrowItDownController', NarrowItDownController)
-.service('MenuSearchService', MenuSearchService);
+.service('MenuSearchService', MenuSearchService)
+.directive('foundItems', FoundItemsDirective);
+
+function FoundItemsDirective() {
+    // followed along with lecture 29 and 30
+    var ddo = {
+        templateUrl: 'foundItems.html',
+        scope: {
+            items: '<',
+            onRemove: '&'
+        },
+        controller: FoundItemsDirectiveController,  
+        controllerAs: 'list',
+        bindToController: true
+    };
+    return ddo;
+}
+
+function FoundItemsDirectiveController() {
+    var list = this;  
+    // needed to create something like the cookies in list in lecture 29 so that
+    // could use to figure out when to display nothgin to show
+    list.notFound = function() {
+        return list.items === undefined || list.items.length === 0;
+    }
+}
 
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
     var narrowC = this;
+  //  narrowC.found = [];
     narrowC.searchMenuItems = function(searchTerm) {
         console.log("in search menu items "+ searchTerm);
        // console.log(searchTerm);
@@ -23,6 +49,9 @@ function NarrowItDownController(MenuSearchService) {
         });
     }
 
+    narrowC.removeItem = function(itemIndex) {
+        narrowC.found.splice(itemIndex, 1);
+    }
 }
 
 MenuSearchService.$inject = ['$http'];
@@ -59,5 +88,9 @@ function MenuSearchService($http) {
             return foundItems;
         })
     }
+
+   /**service.removeItem = function(itemIndex) {
+        foundItems.splice(itemIndex, 1);
+    }*/
 }
 })()
