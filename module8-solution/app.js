@@ -26,6 +26,7 @@ function FoundItemsDirectiveController() {
     // needed to create something like the cookies in list in lecture 29 so that
     // could use to figure out when to display nothgin to show
     list.notFound = function() {
+        // had to be just 0 when did undefined it was showing up when page loaded but just want after clicking button
         return list.items.length === 0;
     }
 }
