@@ -9,7 +9,7 @@ angular.module('NarrowItDownApp', [])
 function FoundItemsDirective() {
     // followed along with lecture 29 and 30
     var ddo = {
-        templateUrl: 'foundItems.html',
+        templateUrl: 'foundItems.html ',
         scope: {
             items: '<',
             onRemove: '&'
@@ -28,6 +28,7 @@ function FoundItemsDirectiveController() {
     list.notFound = function() {
         // had to be just 0 when did undefined it was showing up when page loaded but just want after clicking button
         return list.items.length === 0;
+
     }
 }
 
@@ -42,8 +43,8 @@ function NarrowItDownController(MenuSearchService) {
         var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
         promise.then(function (response) {
             narrowC.found = response;
-            console.log("found items:");
-            console.log(narrowC.found);
+            //console.log("found items:");
+            //console.log(narrowC.found);
         }).catch(function (error) {
             console.log(error);
             console.log("Something went wrong.");
@@ -51,9 +52,9 @@ function NarrowItDownController(MenuSearchService) {
     }
 
     narrowC.removeItem = function(itemIndex) {
-        console.log("in remove item " + itemIndex);
+      //  console.log("in remove item " + itemIndex);
         narrowC.found.splice(itemIndex, 1);
-        console.log("after removing item " + narrowC.found);
+        //console.log("after removing item " + narrowC.found);
     }
 }
 
@@ -63,7 +64,7 @@ function MenuSearchService($http) {
 
     service.getMatchedMenuItems = function(searchTerm) {
         // followed example given in Lecture 25 and homework specification
-        console.log("search term above " + searchTerm);
+       // console.log("search term above " + searchTerm);
         return $http({
             method: "GET",
             url: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json"
