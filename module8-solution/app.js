@@ -51,7 +51,9 @@ function NarrowItDownController(MenuSearchService) {
     }
 
     narrowC.removeItem = function(itemIndex) {
+        console.log("in remove item " + itemIndex);
         narrowC.found.splice(itemIndex, 1);
+        console.log("after removing item " + narrowC.found);
     }
 }
 
