@@ -12,12 +12,12 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('home', {
         url: '/',
-        templateUrl: 'src/templates/home.html'
+        templateUrl: 'templates/home.template.html'
     })
     
     .state('categories', {
         url: '/categories',
-        templateUrl: 'src/categories/templates/categories.template.html'
+        templateUrl: 'templates/categories.template.html'
     });
 }
 })();
