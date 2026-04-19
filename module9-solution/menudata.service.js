@@ -21,7 +21,8 @@ function MenuDataService( $http) {
 
     service.getItemsForCategory = function (categoryShortName) {
 
-        var itemUrl = "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json/" + categoryShortName;
+        var itemUrl = "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/" + categoryShortName + ".json";
+        console.log("item url is " + itemUrl);
           return $http({
             method: "GET",
             url: itemUrl,
@@ -29,5 +30,4 @@ function MenuDataService( $http) {
     }
 
 }
-
 }) ();

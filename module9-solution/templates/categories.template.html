@@ -1,1 +1,10 @@
-<h3>You have come to the categories page</h3>
+<h1>Welcome to the categories page.</h1>
+<h3>Click the link below to view more info about each item</h3>
+<!--followed example given in lecture 40-->
+<!-- No requirmenet for html so displayed name and passed short name in  -->
+<ul>
+    <li ng-repeat="category in categoriesList.categories">
+        <a ui-sref="items({categoryShortName: category.short_name})">{{category.name}}</a>
+    </li>
+</ul>
+<ul-view></ul-view>
