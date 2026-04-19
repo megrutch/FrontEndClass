@@ -1,4 +1,7 @@
-<h1>Welcome to items page</h1>
+<h1> {{itemsList.items.category.name}}</h1>
+<h2>Read more about each items below</h2>
+<h3> {{itemsList.items.description}}</h3>
+
 <ul>
     <li ng-repeat="item in itemsList.items.menu_items">
         {{item.name}} - {{item.description}}
