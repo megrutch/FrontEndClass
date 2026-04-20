@@ -8,7 +8,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
 
     // following along with code from Lecture 40
     $urlRouterProvider.otherwise('/');
-
+    // set up routes one by one and tested as went
     $stateProvider
     .state('home', {
         url: '/',
