@@ -29,11 +29,17 @@
             Phone must be in the format ###-###-####.
           </span>
           <br>
-        <input type="text" name="menuShortName" ng-model="signupCtrl.menuShortName" placeholder="Favorite Menu Item" required>
+        <input type="text" name="menuShortName" ng-model="signupCtrl.menuShortName" placeholder="Favorite Menu Number" required ng-blur="signupCtrl.isMenuItemValid()">
         <span ng-if="signupForm.menuShortName.$invalid && signupForm.menuShortName.$touched">
-            Favorite Menu Item is required.
+            Favorite Menu Number is required.
+          </span>
+          <span ng-if="!signupCtrl.found">
+            No such menu number exists.
           </span>
           <br>
         <button type="submit" ng-click="signupCtrl.submit()" ng-disabled="signupForm.$invalid">Submit</button>
+          <span ng-if="signupCtrl.userSaved">
+              Your information has been saved!
+          </span>
     </form>
 </div>

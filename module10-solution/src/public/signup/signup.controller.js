@@ -8,7 +8,8 @@ SignupController.$inject = ['SignupService'];
 
 function SignupController(SignupService) {
   var signupCtrl = this;
-
+  signupCtrl.found = true;
+  signupCtrl.userSaved = false;
   signupCtrl.submit = function() {
     console.log("Submitting user: ", signupCtrl.firstName, signupCtrl.lastName, signupCtrl.email, signupCtrl.phone, signupCtrl.menuShortName);
     
@@ -28,11 +29,10 @@ function SignupController(SignupService) {
         console.log("Saved user");
         user.menuItem = menuItem;
         SignupService.saveUser(user);
-        signupCtrl.message = "Your information has been saved.";
+        signupCtrl.userSaved = true;
       } else {
-        console.log("didnt save the user");
         user.menuItem = null;
-        signupCtrl.message = "No such menu number exists.";
+        signupCtrl.userSaved = false;
       }
     });
   }
@@ -41,14 +41,17 @@ function SignupController(SignupService) {
       console.log("Validating menu item: ", signupCtrl.menuShortName);
       var shortName = signupCtrl.menuShortName;
       if (!shortName) {
+        signupCtrl.found = false;
         return false;
       }
       else {
         SignupService.getMenuItem(shortName).then(function(menuItem) {
           if(menuItem) {
+            signupCtrl.found = true;
             return true;
           }
           else {
+            signupCtrl.found = false;
            return false;
           }
         });

@@ -2,18 +2,20 @@
     <h3>Your Registered Information</h3>
     <div class="row">
     <div class="col-sm-6">
-        <ng-if="!infoCtrl.user || infoCtrl.user === null">
+        <span ng-if="!infoCtrl.user || infoCtrl.user === null">
             <a ui-sref="public.signup">Sign up now!</a>
-        </ng-if>
-        <p><strong>First Name:</strong> {{infoCtrl.user.firstName}}</p>
-        <p><strong>Last Name:</strong> {{infoCtrl.user.lastName}}</p>
-        <p><strong>Email:</strong> {{infoCtrl.user.email}}</p>
-        <p><strong>Phone Number:</strong> {{infoCtrl.user.phone}}</p>
+        </span>
+        <span ng-if="infoCtrl.user && infoCtrl.user !== null">
+            <p><strong>First Name:</strong> {{infoCtrl.user.firstName}}</p>
+            <p><strong>Last Name:</strong> {{infoCtrl.user.lastName}}</p>
+            <p><strong>Email:</strong> {{infoCtrl.user.email}}</p>
+            <p><strong>Phone Number:</strong> {{infoCtrl.user.phone}}</p>
 
-        <h4>Favorite Menu Item</h4>
-        <p>{{infoCtrl.user.menuItem.name}}</p>
-        <br>
-        <!--Need to figure out how to get the image??-->
-        <p>{{infoCtrl.user.menuItem.description}}</p>
+            <h4>Favorite Menu Item</h4>
+            <p>{{infoCtrl.user.menuItem.name}}</p>
+            <br>
+            <!--Need to figure out how to get the image??-->
+            <p>{{infoCtrl.user.menuItem.description}}</p>
+        </ng-if>
     </div>
   </div>
