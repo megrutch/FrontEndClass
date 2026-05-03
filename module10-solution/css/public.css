@@ -111,7 +111,13 @@ h3.menu-item-title {
   font-size: .9em;
   font-style: italic;
 }
+
+#form{
+  color: black;
+}
 /* END SINGLE CATEGORY PAGE */
+
+
 
 
 /********** Large devices only **********/
