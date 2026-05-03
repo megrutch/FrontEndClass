@@ -33,9 +33,6 @@
         <span ng-if="signupForm.menuShortName.$invalid && signupForm.menuShortName.$touched">
             Favorite Menu Item is required.
           </span>
-          <span ng-if="signupForm.menuShortName.$touched && !signupCtrl.isMenuItemValid()">
-            No such menu item exists. 
-          </span>
           <br>
         <button type="submit" ng-click="signupCtrl.submit()" ng-disabled="signupForm.$invalid">Submit</button>
     </form>

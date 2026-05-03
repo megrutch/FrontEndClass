@@ -55,7 +55,9 @@ function routeConfig ($stateProvider) {
       controllerAs: 'infoCtrl', 
       resolve: {  
         user: ['SignupService', function(SignupService) {
-          return SignupService.getUser(); 
+          var user = SignupService.getUser();
+          console.log(user);
+          return user;
         }]
       }
     });
