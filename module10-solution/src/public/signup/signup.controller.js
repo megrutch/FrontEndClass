@@ -4,11 +4,15 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 
-SignupController.$inject = ['menuCategories'];
-/*function SignupController(menuCategories) {
-  var $ctrl = this;
-  $ctrl.menuCategories = menuCategories;
-}*/
+SignupController.$inject = [];
 
+function SignupController() {
+  var signupCtrl = this;
+
+  signupCtrl.submit = function() {
+    // need to figure out what need to put here. 
+    console.log("User info: ", signupCtrl.user); 
+  }
+}
 
 })();
