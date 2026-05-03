@@ -36,6 +36,23 @@ function SignupController(SignupService) {
       }
     });
   }
-}
 
+  signupCtrl.isMenuItemValid = function() {
+      console.log("Validating menu item: ", signupCtrl.menuShortName);
+      var shortName = signupCtrl.menuShortName;
+      if (!shortName) {
+        return false;
+      }
+      else {
+        SignupService.getMenuItem(shortName).then(function(menuItem) {
+          if(menuItem) {
+            return true;
+          }
+          else {
+           return false;
+          }
+        });
+      }
+}
+}
 })();
