@@ -3,7 +3,7 @@
     <div class="row">
     <div class="col-sm-6">
         <span ng-if="!infoCtrl.user || infoCtrl.user === null">
-            <a ui-sref="public.signup">Sign up now!</a>
+            Not Signed up yet! <a ui-sref="public.signup">Sign up now!</a>
         </span>
         <span ng-if="infoCtrl.user && infoCtrl.user !== null">
             <p><strong>First Name:</strong> {{infoCtrl.user.firstName}}</p>
@@ -15,6 +15,7 @@
             <p>{{infoCtrl.user.menuItem.name}}</p>
             <br>
             <!--Need to figure out how to get the image??-->
+            <img ng-src="{{infoCtrl.user.menuImage}}" alt="Menu Item Image" />
             <p>{{infoCtrl.user.menuItem.description}}</p>
         </ng-if>
     </div>

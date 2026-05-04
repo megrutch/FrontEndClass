@@ -28,6 +28,15 @@ function SignupController(SignupService) {
       if(menuItem) {
         console.log("Saved user");
         user.menuItem = menuItem;
+
+        // figure out way to get image path 
+
+
+        var cat = menuItem.category;
+        var short = menuItem.short_name;
+       
+        user.menuImage = "images/menu/" + cat + "/" + short + ".jpg";
+        console.log("path " + user.menuImage);
         SignupService.saveUser(user);
         signupCtrl.userSaved = true;
       } else {

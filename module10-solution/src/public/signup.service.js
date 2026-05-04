@@ -33,11 +33,14 @@ function SignupService( $http) {
             // took my loop from module 8 and modified to fit this assignment
             for(var item in menuItems){
                 var currentItem = menuItems[item];
+                console.log("Current item: ", currentItem);
                 for(var i = 0; i < currentItem.menu_items.length; i++){
                   var curr = currentItem.menu_items[i];
                 //  console.log("Current" + curr); 
                   if(curr.short_name.toLowerCase() === shortName.toLowerCase()){
                     console.log("Found item: ", curr);
+                    // adding category so can use it for image path
+                    curr.category = currentItem.category.short_name;
                     return curr;
                   }
                 }
