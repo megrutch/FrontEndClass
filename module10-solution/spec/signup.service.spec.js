@@ -2,18 +2,22 @@ describe('signupService', function () {
 
   var signupService;
   var $httpBackend;
-  var ApiBasePath;
 
+  /**
+   *I followed similar set ups to Lecture 45 which I rewatched while doing to learn how to use http backend
+
+   For the response I just went to the actual response and copied the first category and everything in it. I kept it to 1 since it would be smaller and easier to test. 
+   */
   beforeEach(function () {
     module('public');
 
     inject(function ($injector) {
       signupService = $injector.get('SignupService');
       $httpBackend = $injector.get('$httpBackend');
-      //ApiBasePath = $injector.get('ApiBasePath');
     });
   });
 
+  // testing what happens when it doesn't find the item in list will be null 
   it('should return null when not in list', function() {
     $httpBackend.whenGET("https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json").respond( {"A": {
     "category": {
@@ -128,6 +132,7 @@ describe('signupService', function () {
   });
 
 
+    // second test to verify what returns when find the item. I just verified that the name matches. 
     it('should return the first menu item when searching for A1', function() {
     $httpBackend.whenGET("https://coursera-jhu-default-rtdb.firebaseio.com/menu_items.json").respond( {"A": {
     "category": {
@@ -236,8 +241,6 @@ describe('signupService', function () {
     ]
   }});
     signupService.getMenuItem("A1").then(function(response) {
-      //expect(response).toBeNotNull();
-      console.log("Response: ", response);
       expect(response.name).toEqual("Won Ton Soup with Chicken");
     });
     $httpBackend.flush();

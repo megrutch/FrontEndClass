@@ -29,6 +29,7 @@
             Phone must be in the format ###-###-####.
           </span>
           <br>
+          <!-- did research to figure out that had to call ngblur. I tried putting just in ngif but then go an infinite loop. -->
         <input type="text" name="menuShortName" ng-model="signupCtrl.menuShortName" placeholder="Favorite Menu Number" required ng-blur="signupCtrl.isMenuItemValid()">
         <span ng-if="signupForm.menuShortName.$invalid && signupForm.menuShortName.$touched">
             Favorite Menu Number is required.

@@ -8,7 +8,7 @@ SignupService.$inject = ['$http'];
 function SignupService( $http) {
     var service = this;
     service.saveUser = function (user) {
-      console.log("Saving user: ", user);
+  //    console.log("Saving user: ", user);
       service.user = user;
     };
 
@@ -17,6 +17,8 @@ function SignupService( $http) {
     };
 
 
+    /// Get menu item based on short name
+    // service method that call to validate item with blur. I also test this method with specs. 
     service.getMenuItem = function (shortName) {
 
        // going to get all the menu items and find that matches
@@ -45,6 +47,7 @@ function SignupService( $http) {
                   }
                 }
             }
+            //otherwise return null 
             return null; 
         });
 

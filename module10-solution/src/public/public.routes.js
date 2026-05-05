@@ -42,6 +42,7 @@ function routeConfig ($stateProvider) {
       }
     })
     .state('public.signup', {
+      // added states needed to 
       url: '/signup',
       templateUrl: 'src/public/signup/signup.html',
       controller: 'SignupController',
@@ -54,9 +55,10 @@ function routeConfig ($stateProvider) {
       controller: 'InfoController',
       controllerAs: 'infoCtrl', 
       resolve: {  
+        // tried to resolve instead of injecting? Followed example from Module 9 homeowrk 
         user: ['SignupService', function(SignupService) {
           var user = SignupService.getUser();
-          console.log(user);
+        //  console.log(user);
           return user;
         }]
       }
